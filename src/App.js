@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Grid } from "@material-ui/core";
+import Task from "./Task";
 import "./App.css";
 
 class App extends Component {
@@ -11,6 +12,9 @@ class App extends Component {
           <Button variant="contained" color="secondary">
             Ready to todo!
           </Button>
+          <br/>
+          <br/>
+          <Task />
         </Grid>
       </div>
     );
