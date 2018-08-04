@@ -6,7 +6,7 @@ import "./App.css";
 class App extends Component {
   componentDidMount() {
     const io = require("socket.io-client")("http://localhost:8088");
-    io.on("connection", socket => {
+    io.on("connect", socket => {
       console.log("client connected");
     });
   }
