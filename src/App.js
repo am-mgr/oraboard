@@ -4,6 +4,13 @@ import Task from "./Task";
 import "./App.css";
 
 class App extends Component {
+  componentDidMount() {
+    const io = require("socket.io-client")("http://localhost:8088");
+    io.on("connection", socket => {
+      console.log("client connected");
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,8 +19,8 @@ class App extends Component {
           <Button variant="contained" color="secondary">
             Ready to todo!
           </Button>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <Task />
         </Grid>
       </div>

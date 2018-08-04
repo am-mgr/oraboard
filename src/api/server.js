@@ -1,14 +1,24 @@
 const express = require("express");
+const http = require("http");
+const cors = require('cors');
 
-const server = express();
+const app = express();
+
+const httpServer = http.Server(app);
+
+const io = require('socket.io')(httpServer);
+
+io.on('connection', function(socket){
+  console.log('a client connected');
+});
 
 //TODO: Take port from configuration
 const PORT = 8088;
 
-server.get("/", (req, res) => {
-  res.send("Server works!");
+app.get("/", (req, res) => {
+  res.send("app works!");
 });
 
-server.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`);
+httpServer.listen(PORT, () => {
+  console.log(`app started on http://localhost:${PORT}`);
 });
