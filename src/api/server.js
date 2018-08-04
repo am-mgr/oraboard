@@ -5,10 +5,10 @@ const app = express();
 
 const httpServer = http.Server(app);
 
-const io = require('socket.io')(httpServer);
+const io = require("socket.io")(httpServer);
 
-io.on('connection', function(socket){
-  console.log('a client connected');
+io.on("connection", function(socket) {
+  console.log("a client connected");
 });
 
 //TODO: Take port from configuration
