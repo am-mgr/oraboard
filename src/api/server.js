@@ -7,7 +7,7 @@ const httpServer = http.Server(app);
 
 const io = require("socket.io")(httpServer);
 
-io.on("connection", function(socket) {
+io.on("connection", socket => {
   console.log("a client connected");
 });
 
