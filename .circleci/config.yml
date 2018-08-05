@@ -8,6 +8,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.4
+    environment:
+      CI: true
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -38,8 +40,5 @@ jobs:
       - run: yarn build:api
       - run: yarn build
       # run tests!
-      - run: 
-          name: run tests
-          command: yarn test
-          environment:
-            CI: true
+      - run: yarn test
+          
