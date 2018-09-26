@@ -13,16 +13,27 @@ const About = () => {
   return <p>About us</p>;
 };
 
+const Foo = ({ msg, name }) => {
+  return (
+    <p>
+      Message: {msg} {name}
+    </p>
+  );
+};
+
 const AppWithRoute = () => {
   return (
     <div>
       <div>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="about">About</Link>
+        <Link to="/">Home</Link> | <Link to="about">About</Link>
+      </div>
+      <div>
+        <Link to="foo/hello/to/world">Foo</Link>
       </div>
       <Router>
         <Home path="/" />
         <About path="about" />
+        <Foo path="foo/:msg/to/:name" />
       </Router>
     </div>
   );
